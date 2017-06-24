@@ -29,9 +29,6 @@
 #include <unordered_map>
 #include <string.h>
 #include "types.hh"
-using __gnu_cxx::hash;
-using __gnu_cxx::unordered_map;
-using __gnu_cxx::unordered_set;
 using std::string;
 using std::vector;
 using std::ostream;
@@ -114,19 +111,6 @@ struct streq {
   bool operator()(const char* s1, const char* s2) const
   {return strcmp(s1, s2) == 0;}
 };
-
-namespace __gnu_cxx
-{
-template<>
-   struct hash<std::string>
-   {
-     size_t operator()(const std::string& s) const 
-     {
-         hash<const char*> h;
-         return h(s.data());
-     }
-   };
-} /*end of namespace __gnu_cxx */
 
 const char* to_string (KeepValue value);
 const char* to_string (Criterion value);
