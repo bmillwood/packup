@@ -25,13 +25,13 @@
 #ifndef COMMON_TYPES_H
 #define	COMMON_TYPES_H
 
-#include <ext/hash_set>
-#include <ext/hash_map>
+#include <unordered_set>
+#include <unordered_map>
 #include <string.h>
 #include "types.hh"
 using __gnu_cxx::hash;
-using __gnu_cxx::hash_map;
-using __gnu_cxx::hash_set;
+using __gnu_cxx::unordered_map;
+using __gnu_cxx::unordered_set;
 using std::string;
 using std::vector;
 using std::ostream;
@@ -40,8 +40,8 @@ using std::ostream;
 #define CONSTANT const
 #define CONTAINS(s,e) ( ((s).find(e))!=(s).end() )
 #define SAME_PACKAGE_NAME(n1,n2) (n1.data()==n2.data())
-#define unordered_set hash_set
-#define unordered_map hash_map
+#define unordered_set unordered_set
+#define unordered_map unordered_map
 
 typedef unsigned int UINT;
 typedef UINT         Version;

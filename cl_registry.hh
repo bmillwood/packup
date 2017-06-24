@@ -34,8 +34,8 @@
 #include <cmath>
 #include <vector>
 
-#include <ext/hash_map>       // Location of STL hash extensions
-#include <ext/hash_set>       // Location of STL hash extensions
+#include <unordered_map>       // Location of STL hash extensions
+#include <unordered_set>       // Location of STL hash extensions
 #include <ext/algorithm>      // Location of STL hash extensions
 
 using namespace std;

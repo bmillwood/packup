@@ -53,14 +53,14 @@ class BasicClauseSet;
 typedef BasicClause* BasicClausePtr;
 typedef BasicClause** BasicClausePtrPtr;
 
-//typedef hash_set<BasicClause*,ClauseHash,ClauseEqual> HashedClauseSet;
-typedef hash_set<BasicClause*,ClPtrHash,ClPtrEqual> HashedClauseSet;
+//typedef unordered_set<BasicClause*,ClauseHash,ClauseEqual> HashedClauseSet;
+typedef unordered_set<BasicClause*,ClPtrHash,ClPtrEqual> HashedClauseSet;
 typedef HashedClauseSet::iterator ClSetIterator;
 typedef HashedClauseSet::iterator cset_iterator;
 
-typedef hash_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Clause2IntMap;
+typedef unordered_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Clause2IntMap;
 
-typedef hash_map<IntVector*,BasicClause*,LitVectHash,LitVectEqual> IVec2ClMap;
+typedef unordered_map<IntVector*,BasicClause*,LitVectHash,LitVectEqual> IVec2ClMap;
 typedef IVec2ClMap::iterator iv2cl_iterator;
 
 typedef vector<BasicClause*> BasicClauseVector;
@@ -73,47 +73,47 @@ typedef list<BasicClause*> BasicClauseList;
 typedef vector<BasicClauseSet*> BasicClauseSetVector;
 
 typedef IntKeyMap<vector<BasicClause*>*> Int2ClVectMap;
-//typedef hash_map<ULINT,vector<BasicClause*>*,IntHash,IntEqual> Int2ClVectMap;
+//typedef unordered_map<ULINT,vector<BasicClause*>*,IntHash,IntEqual> Int2ClVectMap;
 
-typedef hash_map<BasicClause*,vector<LINT>*,ClPtrHash,ClPtrEqual> Cl2IntVMap;
+typedef unordered_map<BasicClause*,vector<LINT>*,ClPtrHash,ClPtrEqual> Cl2IntVMap;
 
-typedef hash_map<BasicClause*,vector<BasicClause*>*,ClPtrHash,ClPtrEqual> Cl2ClVMap;
+typedef unordered_map<BasicClause*,vector<BasicClause*>*,ClPtrHash,ClPtrEqual> Cl2ClVMap;
 
-typedef hash_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Cl2IntMap;
+typedef unordered_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Cl2IntMap;
 typedef Cl2IntMap::iterator c2n_iterator;
 
-typedef hash_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClMap;
+typedef unordered_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClMap;
 
-//typedef hash_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
+//typedef unordered_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
 
-typedef hash_map<BasicClause*,BasicClause*,ClPtrHash,ClPtrEqual> Cl2ClMap;
+typedef unordered_map<BasicClause*,BasicClause*,ClPtrHash,ClPtrEqual> Cl2ClMap;
 
 typedef
 vector<BasicClauseSet*> ClauseSetVector;
 
 typedef 
-hash_map<LINT,BasicClauseVector*,IntHash,IntEqual> Int2ClVMap;
+unordered_map<LINT,BasicClauseVector*,IntHash,IntEqual> Int2ClVMap;
 
 typedef 
-hash_map<XLINT,BasicClauseVector*,XLIntHash,XLIntEqual> XLInt2ClVMap;
+unordered_map<XLINT,BasicClauseVector*,XLIntHash,XLIntEqual> XLInt2ClVMap;
 
 typedef
-hash_map<BasicClause*,vector<LINT>*,ClPtrHash,ClPtrEqual> Cl2IntVMap;
+unordered_map<BasicClause*,vector<LINT>*,ClPtrHash,ClPtrEqual> Cl2IntVMap;
 
 typedef
-hash_map<BasicClause*,vector<BasicClause*>*,ClPtrHash,ClPtrEqual> Cl2ClVMap;
+unordered_map<BasicClause*,vector<BasicClause*>*,ClPtrHash,ClPtrEqual> Cl2ClVMap;
 
 typedef
-hash_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Cl2IntMap;
+unordered_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual> Cl2IntMap;
 
 typedef
-hash_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClMap;
+unordered_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClMap;
 
 typedef
-hash_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
+unordered_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
 
 //typedef
-//hash_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClVMap;
+//unordered_map<LINT,BasicClause*,IntHash,IntEqual> Int2ClVMap;
 
 typedef 
 vector<Cl2IntMap*> VectCl2IntMap;
@@ -125,12 +125,12 @@ typedef
 vector<HashedClauseSet> VectHashedClauseSet;
 
 //typedef
-//vector<hash_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual>*> IntVCl2IntMap;
+//vector<unordered_map<BasicClause*,LINT,ClPtrHash,ClPtrEqual>*> IntVCl2IntMap;
 
-//typedef hash_map<LINT,vector<BasicClause*>,IntHash,IntEqual> Int2ClVMap;
+//typedef unordered_map<LINT,vector<BasicClause*>,IntHash,IntEqual> Int2ClVMap;
 
 //typedef
-//hash_map<BasicClausePtr,BasicClausePtrPtr,ClPtrHash,ClPtrEqual> Cl2ClPMap;
+//unordered_map<BasicClausePtr,BasicClausePtrPtr,ClPtrHash,ClPtrEqual> Cl2ClPMap;
 
 #endif /* _CL_TYPES_H */
 

@@ -158,8 +158,8 @@ struct eqint {
 #include <map>
 #include <set>
 #include <ext/slist>          // Location of STL list extensions
-#include <ext/hash_map>       // Location of STL hash extensions
-#include <ext/hash_set>       // Location of STL hash extensions
+#include <unordered_map>       // Location of STL hash extensions
+#include <unordered_set>       // Location of STL hash extensions
 
 using namespace std;
 using namespace __gnu_cxx;    // Required for STL hash extensions
@@ -218,7 +218,7 @@ class RefKeyMap : public StdMap<K,V> { };
 #else
 
 template <class T, class H, class E>
-class StdSet : public hash_set<T,H,E> {
+class StdSet : public unordered_set<T,H,E> {
 public:
   inline bool exists(T v) { return this->find(v) != this->end(); }
   inline void insert(T v) {
@@ -228,7 +228,7 @@ public:
       cout<<"Resizing a ""T"" set "<<endl;
       //);
       this->resize(8*(sz+(sz==0)?1:0)+1); }
-    hash_set<T,H,E>::insert(v); }
+    unordered_set<T,H,E>::insert(v); }
   void dump(ostream& outs=std::cout) {
     typename StdSet<T,H,E>::iterator npos = this->begin();
     typename StdSet<T,H,E>::iterator nend = this->end();
@@ -244,7 +244,7 @@ template <class K>    // K should be pointer type
 class RefSet : public StdSet<K,PtrHash,PtrEqual> { };
 
 template <class TK, class TV, class H, class E>
-class StdMap : public hash_multimap<TK,TV,H,E> {
+class StdMap : public unordered_multimap<TK,TV,H,E> {
 public:
   inline bool exists(TK k) { return this->find(k) != this->end(); }
   inline bool exists(TK k, TV v) {
@@ -261,7 +261,7 @@ public:
       cout<<"Resizing a ""TK"" map "<<endl;
       //);
       this->resize(8*(sz+(sz==0)?1:0)+1); }
-    hash_multimap<TK,TV,H,E>::insert(v); }
+    unordered_multimap<TK,TV,H,E>::insert(v); }
   inline void insert(TK v1, TV v2) {
     this->insert(make_pair(v1,v2)); }
   inline TV lookup(TK k) { assert(exists(k)); return find(k)->second; }
@@ -291,18 +291,18 @@ typedef vector<bool> BoolVector;
 //template <class K>
 //class Ref2IntMap : public RefKeyMap<K,int> { };
 
-typedef hash_map<LINT,LINT,IntHash,IntEqual> Int2IntMap;
+typedef unordered_map<LINT,LINT,IntHash,IntEqual> Int2IntMap;
 
-typedef hash_map<XLINT,XLINT,XLIntHash,XLIntEqual> XLInt2XLIntMap;
+typedef unordered_map<XLINT,XLINT,XLIntHash,XLIntEqual> XLInt2XLIntMap;
 
-typedef hash_map<XLINT,LINT,XLIntHash,XLIntEqual> XLInt2IntMap;
+typedef unordered_map<XLINT,LINT,XLIntHash,XLIntEqual> XLInt2IntMap;
 
 //typedef map<LINT,LINT,IntHash,IntEqual> XLInt2IntMap;
 //typedef map<string,LINT> XLStr2IntMap;
 
-typedef hash_set<ULINT,ULIntHash,ULIntEqual> ULINTSet;
+typedef unordered_set<ULINT,ULIntHash,ULIntEqual> ULINTSet;
 
-typedef hash_set<LINT,IntHash,IntEqual> LINTSet;
+typedef unordered_set<LINT,IntHash,IntEqual> LINTSet;
 
 typedef vector<ULINT> UIntVector;
 
@@ -310,27 +310,27 @@ typedef vector<LINT> IntVector;
 
 typedef vector<XLINT> XLIntVector;
 
-typedef hash_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
+typedef unordered_map<LINT,vector<LINT>*,IntHash,IntEqual> Int2IntVMap;
 
-typedef hash_map<LINT,bool,IntHash,IntEqual> Int2BoolMap;
+typedef unordered_map<LINT,bool,IntHash,IntEqual> Int2BoolMap;
 
 typedef Int2IntMap IDMap;                 // Std map of ID's
 typedef IntSet IDSet;                     // Std set of ID's
 
 template <typename ClRef>
-struct HashedSet { typedef hash_set<ClRef,PtrHash,PtrEqual> Type; };
+struct HashedSet { typedef unordered_set<ClRef,PtrHash,PtrEqual> Type; };
 
 template <typename ClRef>
-struct Ref2RefPMap { typedef hash_map<ClRef,ClRef*,PtrHash,PtrEqual> Type; };
+struct Ref2RefPMap { typedef unordered_map<ClRef,ClRef*,PtrHash,PtrEqual> Type; };
 
 template <typename ClRef>
-struct Ref2IntMap { typedef hash_map<ClRef,LINT,PtrHash,PtrEqual> Type; };
+struct Ref2IntMap { typedef unordered_map<ClRef,LINT,PtrHash,PtrEqual> Type; };
 
 template <typename ClRef>
-struct Ref2BoolMap { typedef hash_map<ClRef,bool,PtrHash,PtrEqual> Type; };
+struct Ref2BoolMap { typedef unordered_map<ClRef,bool,PtrHash,PtrEqual> Type; };
 
 template <typename ClRef>
-struct Int2RefMap { typedef hash_map<LINT,ClRef,IntHash,IntEqual> Type; };
+struct Int2RefMap { typedef unordered_map<LINT,ClRef,IntHash,IntEqual> Type; };
 
 
 //jpms:bc
