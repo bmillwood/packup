@@ -2,7 +2,7 @@ PackUP --  PACKage UPgradability with Boolean formulations
 =================================================================================
  authors: Mikolas Janota, Joao Marques-Silva
  contributors: Ines Lynce, Vasco Manquinho
- email mikolas@sat.inesc-id.pt
+ email mikolas AT sat DOT inesc-id DOT pt
  (C) 2011 Mikolas Janota
  Released under the GPL license.
 
@@ -10,7 +10,7 @@ Overview
 --------------------------------------------------------------------------------
 packup  is a solver for the package upgradability problem specified in CUDF
 [TZ09].  It repeatedly invokes an optimization pseudo-Boolean solver in order
-to solve the problem.  By default minisat+ [ES06] is used for that pusrpose but
+to solve the problem.  By default minisat+ [ES06] is used for that purpose, but
 a different solver can be used by specifying the pertaining command line
 option.
 
